@@ -6,7 +6,7 @@ import { useState } from 'react';
 import DataTableF from './DataTableF';
 import DataTableS from './DataTableS';
 
-const DataTable = ({ selectedData, isOpen,isOpenPrice,selectedMenuData}) => {
+const DataTable = ({ selectedData, isOpen,isOpenPrice,selectedMenuData,activeAdisyon,selectedRow}) => {
 
 
 
@@ -20,10 +20,12 @@ const DataTable = ({ selectedData, isOpen,isOpenPrice,selectedMenuData}) => {
       <p className='text-gray-500 font-poppins text-base font-normal leading-6'>{ selectedData.date1}</p>
       </div>
       </div>
-      <DataTableF selectedData={selectedData} isOpen={isOpen} isOpenPrice={isOpenPrice} selectedMenuData={selectedMenuData} />
-      <DataTableS  selectedData={selectedData} isopen={isOpen}  isOpenPrice={isOpenPrice}  selectedMenuData={selectedMenuData} />
+  
+      <div className={`flex flex-col gap-10 min-w-[888px] ${isOpen && 'min-w-[308px]'} `}>
+      <DataTableF selectedData={selectedData} isOpen={isOpen} isOpenPrice={isOpenPrice} selectedMenuData={selectedMenuData}  activeAdisyon={activeAdisyon} selectedRow={selectedRow} />
+      <DataTableS  selectedData={selectedData} isopen={isOpen}  isOpenPrice={isOpenPrice}  selectedMenuData={selectedMenuData} activeAdisyon={activeAdisyon}  />
 
-   
+      </div>
      
     </div>
   );

@@ -3,6 +3,8 @@ export const Products = [
     {
 
         src:'src/assets/image 4.png',
+        
+        src1:'src/assets/image 3.png',
         name:'Ankara Branch',
         Lisans:'Active',
         Bitistarihi:'08:04:27',
@@ -14,7 +16,8 @@ export const Products = [
         name:'Ankara Branch',
         Lisans:'Active',
         Bitistarihi:'08:04:27',
-        desc: 'Mevcut Kasa Durumu'
+        desc: 'Mevcut Kasa Durumu',
+        src1:'src/assets/image 3.png',
 
     },
     {
@@ -22,7 +25,8 @@ export const Products = [
         name:'Ankara Branch',
         Lisans:'Active',
         Bitistarihi: '08:04:27',
-        desc: 'Mevcut Kasa Durumu'
+        desc: 'Mevcut Kasa Durumu',
+        src1:'src/assets/image 3.png',
 
     },
     {
@@ -30,7 +34,8 @@ export const Products = [
         name:'Ankara Branch',
         Lisans:'Active',
         Bitistarihi:'08:04:27',
-        desc: 'Mevcut Kasa Durumu'
+        desc: 'Mevcut Kasa Durumu',
+            src1:'src/assets/image 3.png',
 
     },
     {
@@ -38,7 +43,8 @@ export const Products = [
         name:'Ankara Branch',
         Lisans:'Active',
         Bitistarihi:'08:04:27',
-        desc: 'Mevcut Kasa Durumu'
+        desc: 'Mevcut Kasa Durumu',
+        src1:'src/assets/image 3.png',
 
     },
     {
@@ -46,7 +52,8 @@ export const Products = [
         name:'Ankara Branch',
         Lisans:'Active',
         Bitistarihi:'08:04:27',
-        desc: 'Mevcut Kasa Durumu'
+        desc: 'Mevcut Kasa Durumu',
+        src1:'src/assets/image 3.png',
 
     },
 
@@ -331,5 +338,78 @@ export const products=[
         name:'PANSION',
         price:'90,80',
         name2:'kardes koktyl'
+    },
+]
+
+export const activeAdisyonData =[
+    {
+        name:'Bahce (1)',
+        Yemek:'Barbunya Pilaki',
+        Adet:'Adet',
+        Fitat:'Fiyat',
+        OzetBiligi:[
+            {
+                name:'activeAdisyon',
+                number:'1',
+                percentage:'50,90'
+            },
+            {
+                name:'activeAdisyon',
+                number:'1',
+                percentage:'50,90'
+            },
+            {
+                name:'activeAdisyon',
+                number:'1',
+                percentage:'50,90'
+            },
+            {
+                name:'activeAdisyon',
+                number:'1',
+                percentage:'50,90'
+            },
+           ]
+    },
+    {
+        name:'Bahce (1)',
+        Yemek:'Barbunya Pilaki',
+        Adet:'Adet',
+        Fitat:'Fiyat'
+    },
+    {
+        name:'Bahce (1)',
+        Yemek:'Barbunya Pilaki',
+        Adet:'Adet',
+        Fitat:'Fiyat'
+    },
+    {
+        name:'Bahce (1)',
+        Yemek:'Barbunya Pilaki',
+        Adet:'Adet',
+        Fitat:'Fiyat'
+    },
+    {
+        name:'Bahce (1)',
+        Yemek:'Barbunya Pilaki',
+        Adet:'Adet',
+        Fitat:'Fiyat'
+    },
+    {
+        name:'Bahce (1)',
+        Yemek:'Barbunya Pilaki',
+        Adet:'Adet',
+        Fitat:'Fiyat'
+    },
+    {
+        name:'Bahce (1)',
+        Yemek:'Barbunya Pilaki',
+        Adet:'Adet',
+        Fitat:'Fiyat'
+    },
+    {
+        name:'Bahce (1)',
+        Yemek:'Barbunya Pilaki',
+        Adet:'Adet',
+        Fitat:'Fiyat'
     },
 ]

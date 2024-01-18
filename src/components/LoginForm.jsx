@@ -12,7 +12,7 @@ const LoginForm = () => {
         <h2 className='absolute  top-[218px] left-[100px]  text-[110px]  font-semibold text-white'>Liwa</h2>
         <h2 className='absolute top-[315px] left-[120px] text-[105px] font-semibold text-white'>Soft</h2>
         </div>
-        <div className='max-w-[436px] h-[387px]'>
+        <div className='max-w-[536px] h-[400px]'>
             <form className='flex flex-col  ml-20 gap-[20px] justify-center'>
                 <p className='font-bold text-3xl text-center'>login</p>
                 <div>
@@ -23,7 +23,7 @@ const LoginForm = () => {
                         type="text"
                         id="email"
                         name="email"
-                        className="mt-1 p-2 border focus:outline-none focus:ring focus:border-blue-300 w-full bg-[#f6f6f6]"
+                        className="mt-1 p-2  br focus:outline-none  w-full bg-[#f6f6f6]"
                         placeholder="Enter your email here"
                     />
                 </div>
@@ -35,10 +35,10 @@ const LoginForm = () => {
                         type="password"
                         id="password"
                         name="password"
-                        className="mt-1 p-2 border rounded-md w-full focus:outline-none focus:ring focus:border-blue-300 bg-[#f6f6f6]"
+                        className="mt-1 p-2 br rounded-md w-full focus:outline-none   bg-[#f6f6f6]"
                         placeholder="Enter your password here"
                     />
-                    <a href="" className='text-[#7b97fb] ml-56'>Forgot Password?</a>
+                    <a href="" className='text-[#7b97fb] ml-[330px]'>Forgot Password?</a>
                 </div>
                 <button className='bg-[#4461f2] text-white p-3'>Login</button>
             </form>

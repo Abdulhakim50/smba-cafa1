@@ -19,6 +19,7 @@ const InformationPage = () => {
   const [isOpenPrice, setisOpenPrice] = useState(false)
   const [selectedRow, setSelectedRow] = useState(tableInputs[0] ? tableInputs[0].id : null);
   const [selectedMenu, setSelectedMenu] = useState(false);
+  const [activeAdisyon, setactiveAdisyon] = useState(false)
 
 
 
@@ -38,27 +39,33 @@ const InformationPage = () => {
 
 
 <div className='flex flex-col  items-start gap-[50px] bg-[#FFF]'>
-    <InfoNav   isOpenPrice={isOpenPrice} setisOpenPrice={setisOpenPrice} />
+    <InfoNav   isOpenPrice={isOpenPrice} setisOpenPrice={setisOpenPrice}  setactiveAdisyon={setactiveAdisyon} activeAdisyon={activeAdisyon}/>
+  
     <div className='flex px-[150px]   gap-[10px] flex-shrink-0 items-stretch '>
+   
     <NavTable
         data={tableInputs}
         selectedRow={selectedRow}
         setSelectedRow={setSelectedRow}
         isOpen={isOpen} setIsOpen={setIsOpen}
         isOpenPrice={isOpenPrice} setisOpenPrice={setisOpenPrice}
+        selectedData={selectedData}
+        activeAdisyon={activeAdisyon}
       />
+  
        
-      <DataTable selectedData={selectedData} isOpen={isOpen} setIsOpen={setIsOpen} isOpenPrice={isOpenPrice}    selectedMenuData={selectedMenuData} />
+      <DataTable activeAdisyon={activeAdisyon} selectedData={selectedData} isOpen={isOpen} setIsOpen={setIsOpen} isOpenPrice={isOpenPrice}    selectedMenuData={selectedMenuData} selectedRow={selectedRow} />
       <ComparisionTable 
      
         isOpenSubMenu={isOpenSubMenu}
         selectedMenu={selectedMenu}
         selectedData={selectedData}
-
-     
+        isOpen={isOpen} setIsOpen={setIsOpen} isOpenPrice={isOpenPrice}    selectedMenuData={selectedMenuData}
+        activeAdisyon={activeAdisyon}      selectedRow={selectedRow}
      
      />
       </div>
+    
       <div className=' fixed left-[1230px]  mt-24 ml-[0px] flex '>
       <SubMenu  isOpen={isOpen}  data={tableInputs}
         selectedRow={selectedRow}

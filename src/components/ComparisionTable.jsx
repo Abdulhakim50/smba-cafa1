@@ -1,11 +1,12 @@
 import React from 'react'
 import DataTable from './DataTable'
+import ComparisionData from './ComparisionData'
 
-const ComparisionTable = ({selectedData,selectedMenu}) => {
+const ComparisionTable = ({selectedData,selectedMenu,isOpen}) => {
   return (
     <>
-    <div className={`  ${!selectedMenu && 'hidden'}`}>
-     <DataTable selectedData={selectedData} />
+    <div className={`${!selectedMenu && 'hidden'}`}>
+     <ComparisionData selectedData={selectedData} />
     </div>
     </>
   )

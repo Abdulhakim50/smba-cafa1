@@ -1,6 +1,6 @@
 import React from 'react'
 
-const InfoNav = ({ isOpenPrice, setisOpenPrice }) => {
+const InfoNav = ({ isOpenPrice, setisOpenPrice,setactiveAdisyon }) => {
   const sign = '<'
   return (
     <div className=' flex  w-full paddingcss justify-center items-center  gap-[20px] bg-[#E2E8F0] InfoNav'>
@@ -14,9 +14,9 @@ const InfoNav = ({ isOpenPrice, setisOpenPrice }) => {
           </div>
         </div>
         <div className='flex gap-[25px]'>
-          <div onClick={() => setisOpenPrice(!isOpenPrice)}>Product Price</div>
-          <p>Active Adisyon</p>
-          <p>Logout</p>
+          <div onClick={() => {setisOpenPrice(true); setactiveAdisyon(false)}}>Product Price</div>
+          <div onClick={()=>{setactiveAdisyon(true); setisOpenPrice(false)}}>Active Adisyon</div>
+         <a href="/">Logout</a>
         </div>
 
       </div>

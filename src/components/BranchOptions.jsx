@@ -2,6 +2,7 @@ import React from 'react'
 import { tableInputs } from '../../data/data'
 import { branches } from '../../data/data'
 
+
 const BranchOptions = ({ isOpen, setIsOpen,  isOpenSubMenu, setisOpenSubMenu, setisOpenPrice, isOpenPrice, selectedMenu, setSelectedMenu }) => {
 
 
@@ -9,14 +10,17 @@ const BranchOptions = ({ isOpen, setIsOpen,  isOpenSubMenu, setisOpenSubMenu, se
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
     setisOpenSubMenu(!isOpenSubMenu)
-
+    
+    setisOpenSubMenu(false)
   };
   return (
     <>
 
       <div className={`inline-block text-left `}  >
+        
 
-        {!selectedMenu ?
+        {
+        !selectedMenu ?
           <>
             <div>
               <button
@@ -64,11 +68,11 @@ const BranchOptions = ({ isOpen, setIsOpen,  isOpenSubMenu, setisOpenSubMenu, se
             </div>
           </>
           :
-          <div onClick={() => { setSelectedMenu(!selectedMenu); setIsOpen(!isOpen); setisOpenSubMenu(!isOpenSubMenu) }} className=' cursor-pointer '>back</div>
+          <div onClick={() => { setSelectedMenu(!selectedMenu); setIsOpen(!isOpen); setisOpenSubMenu(!isOpenSubMenu) }} className={`cursor-pointer mt-10 bg-blue-800 text-white p-3 font-bold `} mt-9 >back</div>
         }
       </div>
     </>
   )
 }
 
-export default BranchOptions
+export default BranchOptions 
