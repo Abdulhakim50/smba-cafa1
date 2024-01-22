@@ -56,17 +56,18 @@ border: 1px solid rgba(85, 86, 90, 0.12);
 
 .overlay-image {
   position: absolute;
-  top: 50%; /* Initially position it below the container */
-  transition: top 0.3s; /* Add a smooth transition effect */
+  top: 50%; 
+  transition: top 0.5s; 
 }
 
 .image-container:hover .overlay-image {
-  top: 0; /* Move the overlay image up on hover */
+  top: 0; 
 }
 .br{
   border-radius: 2.546px;
   border: 1px solid #DFE3E7;
 }
+
 
 
 

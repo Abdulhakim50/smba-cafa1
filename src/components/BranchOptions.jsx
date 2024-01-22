@@ -3,20 +3,20 @@ import { tableInputs } from '../../data/data'
 import { branches } from '../../data/data'
 
 
-const BranchOptions = ({ isOpen, setIsOpen,  isOpenSubMenu, setisOpenSubMenu, setisOpenPrice, isOpenPrice, selectedMenu, setSelectedMenu }) => {
+const BranchOptions = ({ isOpen, setIsOpen,  isOpenSubMenu, setisOpenSubMenu, setisOpenPrice, isOpenPrice, selectedMenu, setSelectedMenu, activeAdisyon }) => {
 
 
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
-    setisOpenSubMenu(!isOpenSubMenu)
+   
     
     setisOpenSubMenu(false)
   };
   return (
     <>
 
-      <div className={`inline-block text-left `}  >
+      <div className={`inline-block text-left ${  activeAdisyon ? 'hidden' : isOpenPrice  && 'hidden' } `}  >
         
 
         {
@@ -59,7 +59,7 @@ const BranchOptions = ({ isOpen, setIsOpen,  isOpenSubMenu, setisOpenSubMenu, se
                   <div className="py-1  flex flex-col" role="none">
                     {
                       branches.map((branch) => (
-                        <div onClick={() => setisOpenSubMenu(!isOpenSubMenu)} className='pl-4 py-3 bordb '>{branch.name}</div>
+                        <div onClick={() => setisOpenSubMenu(true)} className='pl-4 py-3 bordb '>{branch.name}</div>
                       ))
                     }
                   </div>

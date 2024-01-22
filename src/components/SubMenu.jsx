@@ -1,7 +1,4 @@
 import React from 'react'
-import { useState,useEffect } from 'react'
-import { tableInputs } from '../../data/data'
-import NavTable from './NavTable'
 import classNames from 'classnames'
 
 const SubMenu = ( {data, selectedRow, setSelectedMenu, selectedMenu,isOpen,isOpenSubMenu,setisOpenSubMenu, }) => {
@@ -16,7 +13,7 @@ const SubMenu = ( {data, selectedRow, setSelectedMenu, selectedMenu,isOpen,isOpe
 
 { isOpenSubMenu && !selectedMenu &&
 
-(<div className={`max-w-[400px] absolute  mt-12 border ml-[-407px]  `}>
+(<div className={`max-w-[400px] absolute  mt-12 border ml-[-407px] transition-[30s]  `}>
       <h1 className='text-center pt-3 pb-3 '>REPORTS</h1> 
      {data.map((row) => (
        <div className={classNames('  cursor-pointer flex flex-col pad bg-[#FCFCFC]', {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import NavTable from '../components/NavTable';
 import DataTable from '../components/DataTable';
 import { tableInputs } from '../../data/data';
@@ -14,12 +14,20 @@ import ComparisionTable from '../components/ComparisionTable';
 const InformationPage = () => {
 
 
+
+   const url = 'liwapos.com:4681/samba.patron/Json/JsonReports?report=PTR-UnPaidTickets&startDate=null&endDate=null'
+
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenSubMenu, setisOpenSubMenu] = useState(false)
   const [isOpenPrice, setisOpenPrice] = useState(false)
   const [selectedRow, setSelectedRow] = useState(tableInputs[0] ? tableInputs[0].id : null);
   const [selectedMenu, setSelectedMenu] = useState(false);
   const [activeAdisyon, setactiveAdisyon] = useState(false)
+   const [error, seterror] = useState(false)
+   const [tableData, settableData] = useState([])
+   const [loading, setloading] = useState(false)
+
+
 
 
 
@@ -30,6 +38,33 @@ const InformationPage = () => {
   const selectedData = selectedRow
     ? tableInputs.find((row) => row.id === selectedRow)
     : null;
+
+    async function fetchInfoData (url){
+      try {
+
+        setloading(true)
+        const response =await fetch(url)
+        const data = response.json();
+        {
+          settableData(data)
+          setloading(false)
+        }
+      } catch (error) {
+        seterror (error.message)
+        setloading(false)
+      }
+    }
+
+
+    useEffect(() => {
+      fetchInfoData(url)
+
+      if(loading){
+        return <div>Loading</div>
+      }
+   
+    }, [])
+    
 
   return (
     <>
@@ -54,7 +89,7 @@ const InformationPage = () => {
       />
   
        
-      <DataTable activeAdisyon={activeAdisyon} selectedData={selectedData} isOpen={isOpen} setIsOpen={setIsOpen} isOpenPrice={isOpenPrice}    selectedMenuData={selectedMenuData} selectedRow={selectedRow} />
+      <DataTable activeAdisyon={activeAdisyon} selectedData={selectedData} isOpen={isOpen} setIsOpen={setIsOpen} isOpenPrice={isOpenPrice}    selectedMenuData={selectedMenuData} selectedRow={selectedRow} tableData={tableData} />
       <ComparisionTable 
      
         isOpenSubMenu={isOpenSubMenu}
@@ -78,10 +113,10 @@ const InformationPage = () => {
 
         />  
       <BranchOptions isOpen={isOpen} setIsOpen={setIsOpen}   
-        isOpenSubMenu={isOpenSubMenu}  setisOpenSubMenu={setisOpenSubMenu}      isOpenPrice={isOpenPrice} setisOpenPrice={setisOpenPrice} selectedMenu={selectedMenu} setSelectedMenu={setSelectedMenu} />
+        isOpenSubMenu={isOpenSubMenu}  setisOpenSubMenu={setisOpenSubMenu}      isOpenPrice={isOpenPrice} setisOpenPrice={setisOpenPrice} selectedMenu={selectedMenu} setSelectedMenu={setSelectedMenu}  activeAdisyon={activeAdisyon}/>
     
       </div>
-
+ 
     
   </div>
   </>

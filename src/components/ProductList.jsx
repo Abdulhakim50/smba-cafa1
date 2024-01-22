@@ -9,7 +9,7 @@ const ProductList = () => {
     <p > Total Branches</p>
     <hr className='bg-blue-500 h-1 w-full' />
     </div>
-    <div className='grid grid-cols-3 items-center mx-60 gap-5 mb-40'> 
+    <div className='grid sm:grid-cols-3 grid-cols-2  items-center mx-60 gap-5 mb-40 max-md:mx-0'> 
   {Products.map((product)=>(
     <div className='flex flex-col shadow-md rounded-md  ' > 
   <div className='flex flex-col shadow-md rounded-md image-container'> 
