@@ -1,22 +1,32 @@
 import React from 'react'
-import { BrowserRouter,Route, Routes } from 'react-router-dom'
+import { BrowserRouter,Navigate,Route, Routes } from 'react-router-dom'
 import Products from '../pages/Products'
 import Login from '../pages/Login'
+import { useState,useEffect } from 'react'
 
 import InformationPage from '../pages/InformationPage'
-import Prac from '../pages/prac'
+import NotFoundPage from '../components/NotFoundPage'
 
 const Routers = () => {
-  return (
-   <BrowserRouter>
-     <Routes>
-     <Route path='/' element={<Login/>}/>
-     <Route path='products' element={<Products/>}/>
-     <Route path='info' element={<InformationPage/>}/>
-     <Route path='p' element={<Prac/>}/>
+
+  const [isLoggedIn, setLoggedIn] = useState(() => {
+ 
+    return JSON.parse(localStorage.getItem('isLoggedIn')) || false;
+  });
+
+
+  useEffect(() => {
    
-     </Routes>
-   </BrowserRouter>
+    localStorage.setItem('isLoggedIn', JSON.stringify(isLoggedIn));
+  }, [isLoggedIn]);
+  return (
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Login setLoggedIn={setLoggedIn} />} />
+      <Route path="products" element={ isLoggedIn ?<Products  isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn}/> : <Navigate to="/"/>   } />
+      <Route path="info" element={ isLoggedIn ? <InformationPage isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn}/> :<Navigate to="/"/>  } />
+    </Routes>
+  </BrowserRouter>
   )
 }
 

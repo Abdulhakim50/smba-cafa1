@@ -2,59 +2,61 @@ import React from 'react'
 import { products } from '../../data/data'
 import { activeAdisyonData } from '../../data/data'
 
-const DataTableF = ({ selectedData, isOpen, isOpenPrice, activeAdisyon,tableData }) => {
+const DataTableF = ({ selectedData, isOpen, isOpenPrice, activeAdisyon, tableData, selectedProduct, selectedActiveAdision }) => {
   return (
     <>
 
 
 
 
-      <div className=''>
-        <div className="overflow-x-auto">
-          <table className={`w-full bg-white border border-gray-300 `}>
+      <div className='  '>
+        <div className="">
+          <table className={`w-full bg-white border border-gray-300 dark:bg-[#293B46] ${isOpenPrice && 'w-[90%]'}  `}>
             <thead>
-              <tr className='bg-[#FCFCFC]'>
-                <th className={`py-2 px-[24px] text-center `} colSpan="3">
-                  <h2 className="text-2xl font-bold mb-2  ">Ozet Biligi</h2>
+              <tr className='bg-[#FCFCFC] dark:bg-[#293B46] dark:text-white '>
+                <th className={`py-2 px-[24px] text-center `} colSpan={isOpenPrice ? "2" : "3"}>
+                  <h2 className="text-2xl font-bold mb-2   ">Ozet Biligi</h2>
                 </th>
               </tr>
 
             </thead>
             <tbody>
-  {isOpenPrice &&
-    products.map((data) => (
-      <tr key={data.name} className={`pl-3`}>
-        <td className="py-[24px] px-[24px] border-b text-gray-600 font-poppins text-base font-medium" colSpan="2">
-          {data.name}
-        </td>
-        <td className="py-[24px] px-[24px] border-b text-gray-600 font-poppins text-base font-medium">{data.price}</td>
-      </tr>
-    ))}
+              {
+              isOpenPrice &&
+                selectedProduct.info.map((data) => (
+                  <tr key={data.id} className={` `}>
+                    <td className="py-4 pl-20 max-md:px-1 border-b text-gray-600 font-poppins text-base font-medium dark:text-white">
+                      {data.name}
+                    </td>
+                    <td className="py-4 px-4 max-md:px-1 border-b text-gray-600 font-poppins text-base font-medium dark:text-white">{data.price}</td>
+                  </tr>
+                ))
+                ||
 
-  {!isOpenPrice && activeAdisyon &&
-    activeAdisyonData.map((data) => (
-      <tr key={data.name} className={`text-center`}>
-        <td className="py-4 px-4 border-b text-gray-600 font-poppins text-base font-medium">{data.name}</td>
-        <td className="py-4 px-4 border-b text-gray-600 font-poppins text-base font-medium">{data.number}</td>
-        <td className="py-4 px-4 border-b text-gray-600 font-poppins text-base font-medium">{data.percentage}</td>
-      </tr>
-    ))}
+                !isOpenPrice && activeAdisyon &&
+                  selectedActiveAdision.OzetBiligi.map((data) => (
+                  <tr key={data.id} className={`text-center`}>
+                    <td className="py-4 px-4 border-b text-gray-600 font-poppins text-base font-medium dark:text-white">{data.name}</td>
+                  </tr>
+                ))
+                ||
 
-  {!isOpenPrice && !activeAdisyon && selectedData &&
-    selectedData.OzetBiligi.map((data) => (
-      <tr key={data.id} className={`text-center transition-[2s]`}>
-        <td className="py-4 px-4 border-b text-gray-600 font-poppins text-base font-medium">{data.name}</td>
-        <td className="py-4 px-4 border-b text-gray-600 font-poppins text-base font-medium">{data.number}</td>
-        <td className="py-4 px-4 border-b text-gray-600 font-poppins text-base font-medium">{data.percentage}</td>
-      </tr>
-    ))}
-</tbody>
+                !isOpenPrice && !activeAdisyon && 
+                selectedData.OzetBiligi.map((data,index) => (
+                  <tr key={data.id} className={`text-center transition-[2s] dark:bg-[#293B46] ${index % 2 === 0 ? 'bg-white' : 'bg-[#FCFCFC]'}`}>
+                    <td className="py-4 px-4 max-md:px-1 border-b text-gray-600 font-poppins text-base font-medium dark:text-white">{data.name}</td>
+                    <td className="py-4 px-4 max-md:px-1 border-b text-gray-600 font-poppins text-base font-medium dark:text-white">{data.number}</td>
+                    <td className="py-4 px-4 max-md:px-1 border-b text-gray-600 font-poppins text-base font-medium dark:text-white">{data.percentage}</td>
+                  </tr>
+                ))
+              }
+
+            </tbody>
 
 
           </table>
         </div>
       </div>
-
 
 
     </>

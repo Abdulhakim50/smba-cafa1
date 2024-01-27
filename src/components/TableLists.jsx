@@ -15,7 +15,7 @@ const TableLists = () => {
   
      <tbody className=' '> { tableInputs.map((tableInput)=>(
                 <tr className=' 
-                '> {tableInput.name} </tr>
+                '> {tableInput.Name} </tr>
             ))
         }
 

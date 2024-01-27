@@ -1,13 +1,15 @@
 import React from 'react'
 import LoginNav from '../components/LoginNav'
 import LoginForm from '../components/LoginForm'
+import MobileLogin from '../components/MobileLogin'
 
 
-const Login = () => {
+const Login = ({setLoggedIn}) => {
     return (
         <div className='bg'>
         <LoginNav/>
-       <LoginForm/>
+       <LoginForm setLoggedIn={setLoggedIn}/>
+       <MobileLogin/>
     </div>
     
     )

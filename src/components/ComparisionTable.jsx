@@ -2,7 +2,7 @@ import React from 'react'
 import DataTable from './DataTable'
 import ComparisionData from './ComparisionData'
 
-const ComparisionTable = ({selectedData,selectedMenu,isOpen,selectedMenuData}) => {
+const ComparisionTable = ({selectedData,selectedMenu,selectedMenuData}) => {
   return (
     <>
     <div className={`${!selectedMenu && 'hidden'}`}>

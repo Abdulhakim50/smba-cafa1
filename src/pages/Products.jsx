@@ -3,7 +3,7 @@ import ProductsNav from '../components/ProductsNav'
 import ProductList from '../components/ProductList'
 import { motion, useScroll } from "framer-motion";
  
- const Products = () => {
+ const Products = ({setLoggedIn}) => {
     const { scrollYProgress } = useScroll();
    return (
     <>
@@ -12,7 +12,7 @@ import { motion, useScroll } from "framer-motion";
         style={{ scaleX: scrollYProgress }}
       />
      <div>
-        <ProductsNav/>
+        <ProductsNav setLoggedIn={setLoggedIn}/>
         <ProductList/>
      </div>
      </>
