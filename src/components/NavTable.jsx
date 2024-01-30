@@ -5,69 +5,69 @@ import { motion } from 'framer-motion';
 import { products } from '../../data/data'
 import { activeAdisyonData } from '../../data/data';
 
-const NavTable = ({ data, selectedRow, setSelectedRow, isOpen, isOpenPrice, selectedData, activeAdisyon }) => {
+const NavTable = ({ data, selectedRow, setSelectedRow, isOpen, isOpenPrice, selectedData, activeAdisyon , slectedADRow,slectedProductRow}) => {
   return (
     <>
 
-      <div className={` h-full w-[300px] bg-[#FCFCFC] dark:bg-[#293B46] dark:border-none   border transition-[30s] max-lg:hidden ${isOpen && 'hidden transition-[30s] '}   `}>
-        <h1 className='text-center pt-16 pb-3  font-semibold bg-white dark:bg-[#293B46]  dark:text-white'>{isOpenPrice && 'PRODUCTS' || activeAdisyon && 'Active Adision' || 'REPORTS'}</h1>
+      <div className={` lg:fixed h-full w-[300px] bg-[#FCFCFC] dark:bg-[#293B46] dark:border-none  lg:mt-[100px]  transition-[30s] max-lg:hidden ${isOpen && 'hidden transition-[30s] '}   `}>
+        <h1 className='text-center pt-16 pb-3  font-[700] bg-white dark:bg-[#293B46]  dark:text-white text-[#6C6F73] tablenavborder border-b-[#FCFCFC]  Poppins '>{isOpenPrice && 'PRODUCTS' || activeAdisyon && 'ACIK ADISIYONLAR' || 'REPORTS'}</h1>
         {
-          isOpenPrice ? products.map((row) => (
-            <div className={classNames(' py-1 w-[90%]  cursor-pointer flex flex-col pad bg-[#FCFCFC] dark:bg-[#293B46] ', {
-              'bg-[#F0F3FA]': selectedRow === row.id,
+          isOpenPrice && products.map((row) => (
+            <div className={classNames('  w-full  py-[15px] dark:bg-[#293B46] cursor-pointer hover:bg-[#E2E8F0] flex flex-col   ', {
+              'bg-[#E2E8F0]': slectedProductRow === row.id,
+            
             })}>
               <div
                 key={row.id}
-                className='  cursor-pointer flex pl-[16px] items-center gap-[20px] '
+                className='  cursor-pointer flex pl-[16px] items-center gap-[40px]  dark:bg-[#293B46] '
 
 
-             
+              
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none" className=' flex-shrink-0 fill-current text-gray-500'>
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M7.49989 0.500244L0.50216 0.50203L0.5 8.49993H7.49989V0.500244ZM16.4976 0.50203L9.49996 0.500244V6.50016H16.5L16.4976 0.50203ZM0.5 10.4999H7.49989V16.4998L0.50216 16.4974L0.5 10.4999ZM16.5 8.49993H9.49996V16.4998L16.4976 16.4974L16.5 8.49993Z" fill="#AAAAAA" />
-                </svg>
-                <div className="text-gray-600  font-poppin text-base font-medium dark:text-white ">{row.name}</div>
+               <div className=' flex-shrink-0 fill-current text-gray-500' dangerouslySetInnerHTML={{ __html: row.logo }}></div>
+            
+                <div className="text-[#6C6F73] text-base font-medium dark:text-white Poppins ">{row.name}</div>
               </div>
             </div>
-          )): ''
+          ))
 
           ||
 
           activeAdisyon &&
           activeAdisyonData.map((row) => (
-            <div className={classNames(' py-1 w-[90%]  cursor-pointer flex flex-col pad bg-[#FCFCFC] dark:bg-[#293B46] ', {
-              'bg-[#F0F3FA]': selectedRow === row.id,
+            <div className={classNames('  w-full   py-[15px] dark:bg-[#293B46] hover:bg-[#E2E8F0] cursor-pointer flex flex-col   ', {
+              'bg-[#E2E8F0] ': slectedADRow === row.id,
+            
             })}>
               <div
                 key={row.id}
-                className='  cursor-pointer flex pl-[16px] items-center gap-[20px] '
+                className='  cursor-pointer flex pl-[40px] items-center gap-[20px]  dark:bg-[#293B46] '
 
 
-            
+              
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none" className=' flex-shrink-0 fill-current text-gray-500'>
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M7.49989 0.500244L0.50216 0.50203L0.5 8.49993H7.49989V0.500244ZM16.4976 0.50203L9.49996 0.500244V6.50016H16.5L16.4976 0.50203ZM0.5 10.4999H7.49989V16.4998L0.50216 16.4974L0.5 10.4999ZM16.5 8.49993H9.49996V16.4998L16.4976 16.4974L16.5 8.49993Z" fill="#AAAAAA" />
-                </svg>
-                <div className="text-gray-600  font-poppin text-base font-medium dark:text-white  ">{row.name}</div>
+               <div className=' flex-shrink-0 fill-current text-gray-500' dangerouslySetInnerHTML={{ __html: row.logo }}></div>
+            
+                <div className="text-[#6C6F73] text-base font-medium dark:text-white Poppins ">{row.name}</div>
               </div>
             </div>
           ))
           ||
           selectedData && data.map((row) => (
-            <div className={classNames(' py-1 w-[90%] dark:bg-[#293B46] cursor-pointer flex flex-col pad bg-[#FCFCFC]', {
-              'bg-[#F0F3FA]': selectedRow === row.id,
+            <div className={classNames('  w-full py-[10px] dark:bg-[#293B46]  hover:bg-[#E2E8F0] cursor-pointer flex flex-col   ', {
+              'bg-[#E2E8F0] dark:bg-[#293B46]': selectedRow === row.id,
+            
             })}>
               <div
                 key={row.id}
-                className='  cursor-pointer flex pl-[16px] items-center gap-[20px] '
+                className='  cursor-pointer flex pl-[16px] items-center gap-[20px]  dark:bg-[#293B46] '
 
 
                 onClick={() => setSelectedRow(row.id)}
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none" className=' flex-shrink-0 fill-current text-gray-500'>
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M7.49989 0.500244L0.50216 0.50203L0.5 8.49993H7.49989V0.500244ZM16.4976 0.50203L9.49996 0.500244V6.50016H16.5L16.4976 0.50203ZM0.5 10.4999H7.49989V16.4998L0.50216 16.4974L0.5 10.4999ZM16.5 8.49993H9.49996V16.4998L16.4976 16.4974L16.5 8.49993Z" fill="#AAAAAA" />
-                </svg>
-                <div className="text-gray-600  font-poppin text-base font-medium dark:text-white">{row.Name}</div>
+               <div className=' flex-shrink-0 fill-current text-gray-500' dangerouslySetInnerHTML={{ __html: row.logo }}></div>
+            
+                <div className="text-[#6C6F73] text-base font-medium dark:text-white Poppins ">{row.Name}</div>
               </div>
             </div>
           ))

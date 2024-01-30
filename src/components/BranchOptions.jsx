@@ -5,7 +5,7 @@ import { TiDeleteOutline } from "react-icons/ti";
 import { useState } from 'react';
 
 
-const BranchOptions = ({ isOpen, setIsOpen, isOpenSubMenu, setisOpenSubMenu, setisOpenPrice, isOpenPrice, selectedMenu, setSelectedMenu, activeAdisyon }) => {
+const BranchOptions = ({ isOpen, setIsOpen, isOpenSubMenu, setisOpenSubMenu, setisOpenPrice, isOpenPrice, selectedMenu, setSelectedMenu, activeAdisyon,setisReportOpen }) => {
   const [selectedBranch, setSelectedBranch] = useState(null);
 
 
@@ -20,6 +20,7 @@ const BranchOptions = ({ isOpen, setIsOpen, isOpenSubMenu, setisOpenSubMenu, set
  
       setisOpenSubMenu(true);
       setSelectedBranch(branchName);
+      setisReportOpen(false)
 
   };
   return (
@@ -60,7 +61,7 @@ const BranchOptions = ({ isOpen, setIsOpen, isOpenSubMenu, setisOpenSubMenu, set
                 {isOpen && (
 
                   <div
-                    className=" absolute right-0 mt-2 w-56   bg-[#FCFCFC] max-lg:right-1  transition-all  dark:bg-[#293B46] "
+                    className={`absolute right-0 mt-2 w-[200px]   bg-[#FCFCFC] max-lg:right-1  transition-all  dark:bg-[#293B46]  ${isOpenSubMenu && 'max-sm:hidden'} `}
                     role="menu"
                     aria-orientation="vertical"
                     aria-labelledby="options-menu"
@@ -71,7 +72,7 @@ const BranchOptions = ({ isOpen, setIsOpen, isOpenSubMenu, setisOpenSubMenu, set
                           <div
                             key={branch.name}
                             onClick={() => handleBranchClick(branch.name)}
-                            className={`pl-4 py-3 bordb max-sm:pl-2 max-sm:py-2 dark:text-white ${isOpenSubMenu && selectedBranch === branch.name ? 'bg-[#E2E8F0]' : ''}`}
+                            className={`text-[#7C838A] pl-4 py-3 bordb max-sm:pl-2 max-sm:py-2 font-[500] dark:text-white Poppins ${isOpenSubMenu && selectedBranch === branch.name ? 'bg-[#E2E8F0]' : ''}`}
                           >
                             {branch.name}
                           </div>
@@ -83,7 +84,7 @@ const BranchOptions = ({ isOpen, setIsOpen, isOpenSubMenu, setisOpenSubMenu, set
               </div>
             </>
             :
-            <div onClick={() => { setSelectedMenu(!selectedMenu); setIsOpen(!isOpen); setisOpenSubMenu(!isOpenSubMenu) }} className={`cursor-pointer mt-5 ml-20   p-3 font-bold  transition-all  `} mt-9 ><TiDeleteOutline className=' text-6xl  dark:text-white' /></div>
+            <div onClick={() => { setSelectedMenu(!selectedMenu); setIsOpen(!isOpen); setisOpenSubMenu(!isOpenSubMenu) }} className={`cursor-pointer mt-5 ml-20   p-3 font-bold  transition-all  ${isOpenPrice || activeAdisyon && 'hidden'} `} mt-9 ><TiDeleteOutline className=' text-6xl  dark:text-white' /></div>
         }
       </div>
     </>

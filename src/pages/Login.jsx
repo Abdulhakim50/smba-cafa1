@@ -6,7 +6,7 @@ import MobileLogin from '../components/MobileLogin'
 
 const Login = ({setLoggedIn}) => {
     return (
-        <div className='bg'>
+        <div className='bg '>
         <LoginNav/>
        <LoginForm setLoggedIn={setLoggedIn}/>
        <MobileLogin/>

@@ -17,17 +17,17 @@ const Menus = ({ isOpen,setIsOpen,isOpenSubMenu, setisOpenSubMenu, isOpenPrice, 
        
       };
     return (
-        <div className= {`mx-[0px] lg:mx-[150px] max-sm:mx-[30px] max-md:ml-[70px] flex justify-between  w-[70vw] lg:hidden`} >
-         <div className={`text-left ${  activeAdisyon ? 'hidden' : isOpenPrice  && 'hidden' } `}  >
+        <div className= {` lg:mx-[150px] max-sm:mx-[5px] max-md:ml-[0px] grid grid-cols-2 gap-80 max-md:gap-40 max-sm:gap-20  w-[70vw] lg:hidden  ${  activeAdisyon || isOpenPrice ? 'hidden' :  '' } `} >
+         <div className={`text-left`}  >
         
 
    
       
           <>
-            <div className={`transition-all ${isOpen && 'hidden'}`}>
+            <div className={`transition-all w-[150px] max-sm:w-[100px]   ${selectedMenu && 'hidden'}`}>
               <button
                 type="button"
-                className=" inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 "
+                className=" inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm  py-2  bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 "
                 id="options-menu"
                 aria-haspopup="true"
                 aria-expanded="true"
@@ -53,7 +53,7 @@ const Menus = ({ isOpen,setIsOpen,isOpenSubMenu, setisOpenSubMenu, isOpenPrice, 
               {isReportOpen && (
 
                 <div
-                  className=" absolute  mt-2 w-56   bg-[#FCFCFC] "
+                  className={`absolute  mt-2 w-56   bg-[#FCFCFC] dark:bg-[#293B46] dark:text-white ${isOpen && 'hidden'} `}
                   role="menu"
                   aria-orientation="vertical"
                   aria-labelledby="options-menu"
@@ -61,7 +61,7 @@ const Menus = ({ isOpen,setIsOpen,isOpenSubMenu, setisOpenSubMenu, isOpenPrice, 
                   <div className="py-1  flex flex-col" role="none">
                     {
                       tableInputs.map((row) => (
-                        <div  onClick={() => {setSelectedRow(row.id); setisReportOpen(!isReportOpen)} } className='pl-4 py-3 bordb '>{row.name}</div>
+                        <div  onClick={() => {setSelectedRow(row.id); setisReportOpen(!isReportOpen)} } className='pl-1 py-1 bordb Poppins'>{row.Name}</div>
                       ))
                     }
                   </div>
@@ -72,11 +72,11 @@ const Menus = ({ isOpen,setIsOpen,isOpenSubMenu, setisOpenSubMenu, isOpenPrice, 
          
       </div>
 
-            <div className='relative'>
+            <div className='relative w-[150px] max-sm:w-[100px]'>
                 <div className='absolute left-[-75px]'>
             <SubMenu isOpenSubMenu={isOpenSubMenu} selectedMenu={selectedMenu} data={tableInputs} setSelectedMenu={setSelectedMenu}/>
             </div>
-            <div className=''>
+            <div className={``}>
            <BranchOptions isOpen={isOpen} setIsOpen={setIsOpen} setisOpenSubMenu={setisOpenSubMenu}  selectedMenu={selectedMenu} setSelectedMenu={setSelectedMenu} isOpenSubMenu={isOpenSubMenu}/>
            </div>
            </div>

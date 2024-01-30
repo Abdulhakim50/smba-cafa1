@@ -71,17 +71,18 @@ const InformationPage = ({ setLoggedIn }) => {
     ? tableInputs.find((row) => row.id === selectedMenu)
     : null;
 
-  const selectedData = selectedRow
-    ? tableInputs.find((row) => row.id === selectedRow)
-    : null;
+
   const selectedActiveAdision = slectedADRow
     ? activeAdisyonData.find((row) => row.id === slectedADRow)
     : null;
   const selectedProduct = slectedProductRow
     ? products.find((row) => row.id === slectedProductRow)
     : null;
+    const selectedData = selectedRow
+    ? tableInputs.find((row) => row.id === selectedRow)
+    : null;
 
-
+console.log(activeAdisyon)
   // useEffect(() => {
   //   const fetchData = async () => {
   //     try {
@@ -111,7 +112,7 @@ const InformationPage = ({ setLoggedIn }) => {
   //   return <div>Loading...</div>;
   // }
 
-
+ 
 
   return (
     <>
@@ -126,8 +127,8 @@ const InformationPage = ({ setLoggedIn }) => {
 
 
 
-          <div className={`flex  mx-[70px]  lg:mx-[150px] max-xl:mx-[150px] max-sm:mx-[30px] max-md:mx-[70px]  gap-[10px] flex-shrink-0 items-stretch max-lg:flex-col  mb-20 ${isOpen && 'mx-[80px] '} ${selectedMenu && 'grid grid-cols-2 max-lg:grid-cols-1'} `} >
-
+          <div className={`  mx-[70px]  lg:mx-[150px] max-xl:mx-[150px] max-sm:mx-[30px] max-md:mx-[70px]  gap-[10px]   mb-20 ${isOpen && 'mx-[80px] '}  `} >
+              <div className={` realtive flex gap-[10px]  max-lg:flex-col flex-shrink-0 items-stretch ${selectedMenu && 'grid grid-cols-2 gap-5 items-center max-lg:grid-cols-1'}`} >
             <NavTable
               data={tableInputs}
               selectedRow={selectedRow}
@@ -141,8 +142,10 @@ const InformationPage = ({ setLoggedIn }) => {
               setslectedADRow={setslectedADRow}
               slectedProductRow={slectedProductRow}
               setslectedProductRow={setslectedProductRow}
-              slectedADRow={setslectedADRow}
+              slectedADRow={slectedADRow}
               tableData={tableData}
+              selectedMenu={selectedMenu}
+            
 
             />
             <Menus isOpen={isOpen} setIsOpen={setIsOpen} isReportOpen={isReportOpen} setisReportOpen={setisReportOpen}
@@ -150,7 +153,9 @@ const InformationPage = ({ setLoggedIn }) => {
                selectedMenu={selectedMenu} setSelectedMenu={setSelectedMenu} setSelectedRow={setSelectedRow} activeAdisyon={activeAdisyon} />
 
 
-            <DataTable isReportOpen={isReportOpen} selectedData={selectedData} isOpen={isOpen} setIsOpen={setIsOpen} isOpenPrice={isOpenPrice} selectedMenuData={selectedMenuData} selectedRow={selectedRow} isOpenSubMenu={isOpenSubMenu} selectedActiveAdision={selectedActiveAdision} selectedProduct={selectedProduct} />
+            <DataTable isReportOpen={isReportOpen} selectedData={selectedData} isOpen={isOpen} setIsOpen={setIsOpen} isOpenPrice={isOpenPrice}
+             selectedMenuData={selectedMenuData} selectedRow={selectedRow} isOpenSubMenu={isOpenSubMenu} selectedActiveAdision={selectedActiveAdision}
+              selectedProduct={selectedProduct} activeAdisyon={activeAdisyon} selectedMenu={selectedMenu} />
 
             <ComparisionTable
 
@@ -161,9 +166,10 @@ const InformationPage = ({ setLoggedIn }) => {
               activeAdisyon={activeAdisyon} selectedRow={selectedRow}
 
             />
+            </div>
           </div>
 
-          <div className=' fixed right-[14rem]   mt-28 ml-[0px] flex max-lg:hidden max-[1314px]:right-[8rem] '>
+          <div className=' fixed right-[10rem]   mt-28 ml-[0px] flex max-lg:hidden max-[1314px]:right-[8rem] '>
             <div className='relative'>
               <div className='absolute right-[115px]' >
                 <SubMenu isOpen={isOpen} data={tableInputs}
@@ -173,6 +179,7 @@ const InformationPage = ({ setLoggedIn }) => {
                   setisOpenSubMenu={setisOpenSubMenu}
                   setSelectedMenu={setSelectedMenu}
                   selectedMenu={selectedMenu}
+                  setIsOpen={setIsOpen}
 
 
                 />
@@ -185,7 +192,7 @@ const InformationPage = ({ setLoggedIn }) => {
                 <BranchOptions isOpen={isOpen} setIsOpen={setIsOpen}
                   isOpenSubMenu={isOpenSubMenu} setisOpenSubMenu={setisOpenSubMenu} 
                   isOpenPrice={isOpenPrice} setisOpenPrice={setisOpenPrice} selectedMenu={selectedMenu}
-                   setSelectedMenu={setSelectedMenu} activeAdisyon={activeAdisyon} />
+                   setSelectedMenu={setSelectedMenu} activeAdisyon={activeAdisyon} setisReportOpen={setisReportOpen} />
               </div>
             </div>
           </div>

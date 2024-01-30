@@ -22,24 +22,26 @@ const InfoNav = ({  setisOpenPrice,setactiveAdisyon,setLoggedIn}) => {
         lightTheme()
     }
 }
+
+
  
   return (
-    <div className=' flex  w-full paddingcss justify-center items-center  gap-[20px] bg-[#E2E8F0] InfoNav max-lg:px-5 dark:bg-[#293B46] '>
+    <div className='lg:fixed flex  w-full paddingcss justify-center items-center  gap-[20px] bg-[#E2E8F0] InfoNav max-lg:px-5 dark:bg-[#293B46] '>
 
       <div className='flex  items-center justify-between nav'>
         <div className=' flex items-center'>
           <h3 className='text-[#64758B] dark:text-white'>{sign}</h3>
-          <div className='flex gap-5 items-center max-sm:gap-20 max-[374px]:gap-5 '>
-            <a href="" className=' text-[16px] text-[#64758B] dark:text-white'>back</a>
-            <h1 className=' text-[26px] font-semibold text-[#64758B] '>Liwa<span className='text-[#334155] dark:text-white opacity-20'>Soft</span> </h1>
+          <div className='flex gap-5 items-center max-sm:gap-19 max-[374px]:gap-5 '>
+            <a href="" className=' text-[16px] text-[#64758B] dark:text-white Poppins'>back</a>
+            <h1 className=' text-[26px] font-semibold text-[#64758B] Poppins '>Liwa<span className='text-[#334155] font-semibold dark:text-white  Poppins'>Soft</span> </h1>
           </div>
         </div>
         <div className='flex gap-[25px] dark:text-white '>
        <div className=' flex gap-[25px] max-sm:hidden  '>
-          <div onClick={() => {setisOpenPrice(true); setactiveAdisyon(false)}}>Product Price</div>
-          <div onClick={()=>{setactiveAdisyon(true); setisOpenPrice(false);  }}>Active Adisyon</div>
+          <div onClick={() => {setisOpenPrice(true); setactiveAdisyon(false)}} className='Poppins'>Product Price</div>
+          <div onClick={()=>{setactiveAdisyon(true); setisOpenPrice(false) }} className='Poppins'>Active Adisyon</div>
      
-         <div onClick={()=>setLoggedIn(false)}>Logout</div>
+         <div onClick={()=>setLoggedIn(false)} className='Poppins'>Logout</div>
          </div>
        
       
@@ -62,10 +64,10 @@ const InfoNav = ({  setisOpenPrice,setactiveAdisyon,setLoggedIn}) => {
          {isDropdownOpen && (
            <div className="dropdown-content  ">
            
-          <div onClick={() => {setisOpenPrice(true); setactiveAdisyon(false)}}>Product Price</div>
-          <div onClick={()=>{setactiveAdisyon(true); setisOpenPrice(false);  }}>Active Adisyon</div>
+          <div onClick={() => {setisOpenPrice(true); setactiveAdisyon(false)}} className='Poppins'>Product Price</div>
+          <div onClick={()=>{setactiveAdisyon(true); setisOpenPrice(false);  }} className='Poppins'>Active Adisyon</div>
      
-             <div onClick={()=>setLoggedIn(false)} className=''>Logout</div>
+             <div onClick={()=>setLoggedIn(false)} className='Poppins'>Logout</div>
            </div>
          )}
        </div>
