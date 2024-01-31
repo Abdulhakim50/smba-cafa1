@@ -13,7 +13,7 @@ const SubMenu = ( {data, selectedRow, setSelectedMenu, selectedMenu,isOpen,isOpe
 
 { isOpenSubMenu && !selectedMenu &&
 
-(  <div className={`max-w-[400px] absolute mt-12 border ml-[-385px] max-lg:ml-[-220px] dark:border-none ${isOpenSubMenu && 'max-sm:right-[-175px]   transition-all'} }`}>
+(  <div className={`max-w-[400px] absolute mt-12 border ml-[-363px] max-lg:ml-[-220px] dark:border-none ${isOpenSubMenu && 'max-sm:right-[-175px]   transition-all'} }`}>
       <h1 className='text-center pt-3 pb-3  dark:text-white  text-[#6C6F73] Poppins font-[700]'>REPORTS</h1> 
      {data.map((row) => (
        <div className={classNames('  cursor-pointer flex flex-col pt-[16px] pr-[52px] pb-[16px] pl-[5px] bg-[#FCFCFC]  dark:bg-[#293B46] max-lg:px-2 max-lg:py-2 ', {
